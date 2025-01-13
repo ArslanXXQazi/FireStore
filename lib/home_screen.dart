@@ -25,10 +25,15 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      body: Column(children: [
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
         TextFormField(
+          controller: name_controller,
           decoration: InputDecoration(
             border: InputBorder.none,
+            hintText: 'Enter your Name',
+            labelText: 'Enter your Name',
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
               borderSide: BorderSide(color: Colors.grey,width: 2)
@@ -38,7 +43,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 borderSide: BorderSide(color: Colors.grey,width: 2)
             ),
           ),
-        )
+        ),
+          ElevatedButton(
+              onPressed: (){},
+              child: Text(
+            'ADD',
+            style: TextStyle(
+                fontSize: 20,
+                color: Colors.black,
+                fontWeight: FontWeight.bold
+            ),
+          ),
+          ),
       ],),
     );
   }
