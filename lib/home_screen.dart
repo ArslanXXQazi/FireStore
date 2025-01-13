@@ -8,7 +8,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  TextEditingController name_controller=TextEditingController();
+  TextEditingController nameController=TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
         TextFormField(
-          controller: name_controller,
+          controller: nameController,
           decoration: InputDecoration(
             border: InputBorder.none,
             hintText: 'Enter your Name',
@@ -46,14 +46,19 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
           ElevatedButton(
               onPressed: (){},
+            style:  ElevatedButton.styleFrom(
+              backgroundColor: Colors.green,
+              minimumSize: Size(300, 50),
+            ),
               child: Text(
             'ADD',
             style: TextStyle(
                 fontSize: 20,
-                color: Colors.black,
+                color: Colors.white,
                 fontWeight: FontWeight.bold
             ),
           ),
+
           ),
       ],),
     );
