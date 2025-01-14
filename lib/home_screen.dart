@@ -12,6 +12,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   TextEditingController nameController=TextEditingController();
   final FirebaseFirestore firestore=FirebaseFirestore.instance;
+  bool loading=false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,6 +50,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ElevatedButton(
               onPressed: () async{
                 try{
+                  loading=true;
+                  setState(() {
+
+                  });
                   if(nameController.text.isNotEmpty){
                     await firestore.collection('Data').add({
                       'Data':nameController.text,
