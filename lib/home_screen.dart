@@ -78,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 setState(() {
 
                 });
-                if(nameController.text.isNotEmpty){
+                if(nameController.text.isNotEmpty && emailController.text.isNotEmpty){
                   await firestore.collection('Data').add({
                     'Email':emailController.text,
                     'Name':nameController.text,
