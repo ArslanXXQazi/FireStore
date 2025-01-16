@@ -10,8 +10,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   TextEditingController nameController=TextEditingController();
-  TextEditingController fathernameController=TextEditingController();
   TextEditingController emailController=TextEditingController();
+  TextEditingController fatherController=TextEditingController();
   final FirebaseFirestore firestore=FirebaseFirestore.instance;
   bool loading=false;
   @override
@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
           //==================================================>>>>3rd Text field
           SizedBox(height: 10,),
           TextFormField(
-            controller: fathernameController,
+            controller: fatherController,
             decoration: InputDecoration(
               border: InputBorder.none,
               hintText: 'Enter Father Name',
@@ -97,11 +97,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 setState(() {
 
                 });
-                if(nameController.text.isNotEmpty && emailController.text.isNotEmpty&&fathernameController.text.isNotEmpty){
+                if(nameController.text.isNotEmpty && emailController.text.isNotEmpty && fatherController.text.isNotEmpty){
                   await firestore.collection('Data').add({
                     'Email':emailController.text,
                     'Name':nameController.text,
-                    'Father Name':fathernameController,
+                    'FatherName':fatherController,
                   });
                   loading=false;
                   setState(() {
@@ -119,6 +119,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   });
                 }
               }catch (e){
+                loading=false;
+                setState(() {
+
+                });
                 ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(content: Text('Error$e'),
                       action: SnackBarAction(label: 'Cancel', onPressed: (){}),
