@@ -10,6 +10,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   TextEditingController nameController=TextEditingController();
+  TextEditingController fathernameController=TextEditingController();
   TextEditingController emailController=TextEditingController();
   final FirebaseFirestore firestore=FirebaseFirestore.instance;
   bool loading=false;
@@ -48,9 +49,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-
-        SizedBox(height: 10,),
           //==================================================>>>>2nd Text field
+          SizedBox(height: 10,),
           TextFormField(
           controller: emailController,
           decoration: InputDecoration(
@@ -68,6 +68,25 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
 
+          //==================================================>>>>3rd Text field
+          SizedBox(height: 10,),
+          TextFormField(
+            controller: fathernameController,
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              hintText: 'Enter Father Name',
+              labelText: 'Enter Father Name',
+              enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(color: Colors.grey,width: 2)
+              ),
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(color: Colors.grey,width: 2)
+              ),
+            ),
+          ),
+
           SizedBox(height: 20,),
           //==================================================>>>>ADD Button
           loading?CircularProgressIndicator()
@@ -78,10 +97,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 setState(() {
 
                 });
-                if(nameController.text.isNotEmpty && emailController.text.isNotEmpty){
+                if(nameController.text.isNotEmpty && emailController.text.isNotEmpty&&fathernameController.text.isNotEmpty){
                   await firestore.collection('Data').add({
                     'Email':emailController.text,
                     'Name':nameController.text,
+                    'Father Name':fathernameController,
                   });
                   loading=false;
                   setState(() {
