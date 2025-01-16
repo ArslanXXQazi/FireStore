@@ -101,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   await firestore.collection('Data').add({
                     'Email':emailController.text,
                     'Name':nameController.text,
-                    'FatherName':fatherController,
+                    'Father Name':fatherController.text,
                   });
                   loading=false;
                   setState(() {
