@@ -13,6 +13,13 @@ class _FetchDataState extends State<FetchData> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        title: Text(
+          'Fetch Data',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
     );
   }
