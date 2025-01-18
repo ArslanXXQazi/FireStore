@@ -40,7 +40,13 @@ class _FetchDataState extends State<FetchData> {
               itemCount: docs.length,
               itemBuilder: (context,index){
                 return Container(
-
+                  height: height*.3,
+                  width: width*.7,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: Colors.grey),
+                  ),
                 );
               },
             );
