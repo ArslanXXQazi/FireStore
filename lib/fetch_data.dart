@@ -11,7 +11,9 @@ class _FetchDataState extends State<FetchData> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
+      appBar: AppBar(
+        centerTitle: true,
+      ),
     );
   }
 }
