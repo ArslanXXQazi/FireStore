@@ -39,13 +39,82 @@ class _FetchDataState extends State<FetchData> {
             return ListView.builder(
               itemCount: docs.length,
               itemBuilder: (context,index){
-                return Container(
-                  height: height*.3,
-                  width: width*.7,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.grey),
+                return Padding(
+                  padding:  EdgeInsets.symmetric(vertical: height*.02,horizontal: width*.04),
+                  child: Container(
+                    height: height*.2,
+                    width: width*.7,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: Colors.grey),
+                    ),
+                    child: Center(
+                      child: Padding(
+                        padding:EdgeInsets.symmetric(horizontal: width*.04),
+                        child: Column(children: [
+                          Text('Student Information',style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),),
+                          SizedBox(height: height*.01,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                            Text(
+                                'Name',
+                              style: TextStyle(
+                                fontSize: 17
+                              ),
+                            ),
+                            Text(docs[index]['Name'],
+                              style: TextStyle(
+                                  fontSize: 17,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.blue
+                              ),
+                            ),
+                          ],),
+                          SizedBox(height: height*.02,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Father Name',
+                          style: TextStyle(
+                              fontSize: 17
+                          ),
+                              ),
+                              Text(docs[index]['Father Name'],
+                                style: TextStyle(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.blue
+                                ),
+                              ),
+                            ],),
+                          SizedBox(height: height*.02,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                  'Email',
+                                style: TextStyle(
+                                    fontSize: 17
+                                ),
+                              ),
+
+                              Text(docs[index]['Email'],
+                                style: TextStyle(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.blue
+                                ),
+                              ),
+                            ],),
+                        ],),
+                      ),
+                    ),
                   ),
                 );
               },
