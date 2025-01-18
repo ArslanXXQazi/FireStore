@@ -47,7 +47,7 @@ class _FetchDataState extends State<FetchData> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.grey),
+                      border: Border.all(color: Colors.green,width: 2),
                     ),
                     child: Center(
                       child: Padding(
