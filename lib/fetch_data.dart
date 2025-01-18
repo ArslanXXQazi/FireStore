@@ -11,6 +11,8 @@ class FetchData extends StatefulWidget {
 class _FetchDataState extends State<FetchData> {
   @override
   Widget build(BuildContext context) {
+    final height=MediaQuery.sizeOf(context).height;
+    final width=MediaQuery.sizeOf(context).width;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -37,7 +39,9 @@ class _FetchDataState extends State<FetchData> {
             return ListView.builder(
               itemCount: docs.length,
               itemBuilder: (context,index){
+                return Container(
 
+                );
               },
             );
           }
