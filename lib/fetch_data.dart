@@ -26,8 +26,9 @@ class _FetchDataState extends State<FetchData> {
     builder: (context,AsyncSnapshot<QuerySnapshot>snapshot){
       if (snapshot.connectionState==ConnectionState.waiting)
         {
-          return Center();
+          return Center(child: CircularProgressIndicator(),);
         }
+      
     })
 
           });
