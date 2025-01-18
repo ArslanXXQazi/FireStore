@@ -110,7 +110,7 @@ class _FetchDataState extends State<FetchData> {
                                 style: TextStyle(
                                     fontSize: 17,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.blue
+                                    color: Colors.red
                                 ),
                               ),
                             ],),
