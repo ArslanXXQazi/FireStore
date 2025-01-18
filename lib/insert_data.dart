@@ -1,14 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firestore/fetch_data.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class InsertData extends StatefulWidget {
+  const InsertData({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<InsertData> createState() => _InsertDataState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _InsertDataState extends State<InsertData> {
   TextEditingController nameController=TextEditingController();
   TextEditingController emailController=TextEditingController();
   TextEditingController fatherController=TextEditingController();
@@ -29,6 +30,17 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+        FloatingActionButton(onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>FetchData()));
+        },
+          backgroundColor: Colors.green,
+          child: const Text('Fetch ',style: TextStyle(
+              fontWeight: FontWeight.bold,fontSize: 18,color: Colors.white,
+          ),),),
+      ],),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -98,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 });
                 if(nameController.text.isNotEmpty && emailController.text.isNotEmpty && fatherController.text.isNotEmpty){
-                  await firestore.collection('Data').add({
+                  await firestore.collection('Information').add({
                     'Email':emailController.text,
                     'Name':nameController.text,
                     'Father Name':fatherController.text,
@@ -106,11 +118,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   loading=false;
                   setState(() {
                   });
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content:Text('Data Addes Succcessfuly')));
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: const Text('Data Added Successfully')));
                 }
                 else{
                   ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Please Enter Your Data'),
+                      SnackBar(content: const Text('Please Enter Your Data'),
                         action: SnackBarAction(label: 'Cancel', onPressed: (){}),
                       ));
                   loading=false;
@@ -124,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 });
                 ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Error$e'),
+                    SnackBar(content:  Text('Error$e'),
                       action: SnackBarAction(label: 'Cancel', onPressed: (){}),
                     ));
               }
@@ -134,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
               backgroundColor: Colors.green,
               minimumSize: Size(300, 50),
             ),
-            child: Text(
+            child:const Text(
               'ADD',
               style: TextStyle(
                   fontSize: 20,

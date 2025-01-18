@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firestore/firebase_options.dart';
-import 'package:firestore/home_screen.dart';
+import 'package:firestore/insert_data.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: InsertData(),
       //const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
