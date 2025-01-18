@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -20,33 +21,15 @@ class _FetchDataState extends State<FetchData> {
           style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
         ),
       ),
-      body: FutureBuilder(future: FirebaseFirestore.instance.collection('Information').get(),
-          builder: (context,AsyncSnapshot<QuerySnapshot>snapshot){
-        if(snapshot.connectionState==ConnectionState.waiting)
-          {
-            return Center(child: CircularProgressIndicator(),);
-          }
-        if(!snapshot.hasData)
-          {
-            return Center(child: Text("No Data Found"),);
-          }
-       final docs=snapshot.data!.docs;
+      body: FutureBuilder(
+    future:FirebaseFirestore.instance.collection('Information').get() ,
+    builder: (context,AsyncSnapshot<QuerySnapshot>snapshot){
+      if (snapshot.connectionState==ConnectionState.waiting)
+        {
+          return Center();
+        }
+    })
 
-        return ListView.builder(
-          itemCount: docs.length,
-          itemBuilder: (context,index){
-            return ListTile(
-              title: Column(children: [
-                Text(docs[index]['Email']),
-                SizedBox(height: 10,),
-                Text(docs[index]['Name']),
-                SizedBox(height: 10,),
-                Text(docs[index]['Father Name']),
-              ],),
-            );
-          },
-        );
-          }),
-    );
+          });
   }
 }
