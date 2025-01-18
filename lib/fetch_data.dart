@@ -52,7 +52,9 @@ class _FetchDataState extends State<FetchData> {
                     child: Center(
                       child: Padding(
                         padding:EdgeInsets.symmetric(horizontal: width*.04),
-                        child: Column(children: [
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
                           Text('Student Information',style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
