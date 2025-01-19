@@ -69,7 +69,7 @@ class _InsertDataState extends State<InsertData> {
               ),
               focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20),
-                  borderSide: BorderSide(color: Colors.grey,width: 2)
+                  borderSide: BorderSide(color: Colors.blue,width: 2)
               ),
             ),
           ),
@@ -87,7 +87,7 @@ class _InsertDataState extends State<InsertData> {
               ),
               focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20),
-                  borderSide: BorderSide(color: Colors.grey,width: 2)
+                  borderSide: BorderSide(color: Colors.blue,width: 2)
               ),
             ),
           ),
@@ -106,7 +106,7 @@ class _InsertDataState extends State<InsertData> {
                 ),
                 focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(color: Colors.grey,width: 2)
+                    borderSide: BorderSide(color: Colors.blue,width: 2)
                 ),
               ),
             ),

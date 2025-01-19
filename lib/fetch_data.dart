@@ -57,7 +57,7 @@ class _FetchDataState extends State<FetchData> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                           Text('Student Information',
-                            style: GoogleFonts.(
+                            style: GoogleFonts.b612Mono(
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
                             ),
