@@ -53,6 +53,7 @@ class _InsertDataState extends State<InsertData> {
              style: GoogleFonts.b612Mono(
                fontSize: 20,
                fontWeight: FontWeight.bold,
+               color: Colors.green
              ),
             ),
             SizedBox(height: height*.02,),
