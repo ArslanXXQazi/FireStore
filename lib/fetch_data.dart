@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class FetchData extends StatefulWidget {
   const FetchData({super.key});
@@ -55,10 +56,12 @@ class _FetchDataState extends State<FetchData> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                          Text('Student Information',style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                          ),),
+                          Text('Student Information',
+                            style: GoogleFonts.(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          ),
                           SizedBox(height: height*.01,),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
