@@ -34,12 +34,15 @@ class _FetchDataState extends State<FetchData> {
     final width = MediaQuery.sizeOf(context).width;
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.black,
         centerTitle: true,
         title: Text(
           'Fetch Data',
           style: TextStyle(
             fontSize: 20,
+            color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
         ),
