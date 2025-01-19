@@ -43,7 +43,7 @@ class _FetchDataState extends State<FetchData> {
                 return Padding(
                   padding:  EdgeInsets.symmetric(vertical: height*.02,horizontal: width*.04),
                   child: Container(
-                    height: height*.2,
+                    height: height*.3,
                     width: width*.7,
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -62,6 +62,24 @@ class _FetchDataState extends State<FetchData> {
                               fontSize: 20,
                             ),
                           ),
+                            SizedBox(height: height*.01,),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'id',
+                                  style: TextStyle(
+                                      fontSize: 17
+                                  ),
+                                ),
+                                Text(docs[index]['id']??'Not Aviliable',
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.blue
+                                  ),
+                                ),
+                              ],),
                           SizedBox(height: height*.01,),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,

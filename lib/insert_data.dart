@@ -15,6 +15,54 @@ class _InsertDataState extends State<InsertData> {
   TextEditingController emailController=TextEditingController();
   TextEditingController fatherController=TextEditingController();
   final FirebaseFirestore firestore=FirebaseFirestore.instance;
+
+
+  Future <void> datainsert()async
+  {
+    try{
+      loading=true;
+      setState(() {
+
+      });
+      String id=DateTime.now().microsecondsSinceEpoch.toString();
+      if(nameController.text.isNotEmpty && emailController.text.isNotEmpty && fatherController.text.isNotEmpty){
+        await firestore.collection('Information').add({
+          'Email':emailController.text,
+          'Name':nameController.text,
+          'Father Name':fatherController.text,
+          'id':id,
+        });
+        loading=false;
+        setState(() {
+        });
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: const Text('Data Added Successfully')));
+      }
+      else{
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: const Text('Please Enter Your Data'),
+              action: SnackBarAction(label: 'Cancel', onPressed: (){}),
+            ));
+        loading=false;
+        setState(() {
+
+        });
+      }
+    }
+    catch (e){
+      loading=false;
+      setState(() {
+
+      });
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content:  Text('Error$e'),
+            action: SnackBarAction(label: 'Cancel', onPressed: (){}),
+          ));
+    }
+
+
+  }
+
+
   bool loading=false;
   @override
   Widget build(BuildContext context) {
@@ -116,44 +164,8 @@ class _InsertDataState extends State<InsertData> {
             //==================================================>>>>ADD Button
             loading?CircularProgressIndicator()
                 :ElevatedButton(
-              onPressed: () async{
-                try{
-                  loading=true;
-                  setState(() {
-
-                  });
-                  if(nameController.text.isNotEmpty && emailController.text.isNotEmpty && fatherController.text.isNotEmpty){
-                    await firestore.collection('Information').add({
-                      'Email':emailController.text,
-                      'Name':nameController.text,
-                      'Father Name':fatherController.text,
-                    });
-                    loading=false;
-                    setState(() {
-                    });
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: const Text('Data Added Successfully')));
-                  }
-                  else{
-                    ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: const Text('Please Enter Your Data'),
-                          action: SnackBarAction(label: 'Cancel', onPressed: (){}),
-                        ));
-                    loading=false;
-                    setState(() {
-
-                    });
-                  }
-                }catch (e){
-                  loading=false;
-                  setState(() {
-
-                  });
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content:  Text('Error$e'),
-                        action: SnackBarAction(label: 'Cancel', onPressed: (){}),
-                      ));
-                }
-
+              onPressed: () {
+                datainsert();
               },
               style:  ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
