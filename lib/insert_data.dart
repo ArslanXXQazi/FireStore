@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firestore/fetch_data.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class InsertData extends StatefulWidget {
   const InsertData({super.key});
@@ -44,14 +45,15 @@ class _InsertDataState extends State<InsertData> {
           ),),),
       ],),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal:width*.03,vertical: height*.01 ),
+        padding: EdgeInsets.symmetric(horizontal:width*.03,vertical: height*.02),
         child: Column(
           children: [
-            Text('Enter Student Information',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+            Text(
+              'Enter Student Information',
+             style: GoogleFonts.b612Mono(
+               fontSize: 20,
+               fontWeight: FontWeight.bold,
+             ),
             ),
             SizedBox(height: height*.02,),
             //==================================================>>>>1st Text field
