@@ -17,6 +17,8 @@ class _InsertDataState extends State<InsertData> {
   bool loading=false;
   @override
   Widget build(BuildContext context) {
+    final height=MediaQuery.sizeOf(context).height;
+    final width=MediaQuery.sizeOf(context).width;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -41,56 +43,45 @@ class _InsertDataState extends State<InsertData> {
               fontWeight: FontWeight.bold,fontSize: 18,color: Colors.white,
           ),),),
       ],),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          //==================================================>>>>1st Text field
-        TextFormField(
-          controller: nameController,
-          decoration: InputDecoration(
-            border: InputBorder.none,
-            hintText: 'Enter your Name',
-            labelText: 'Enter your Name',
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: Colors.grey,width: 2)
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal:width*.03,vertical: height*.01 ),
+        child: Column(
+          children: [
+            Text('Enter Student Information',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-            focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
-                borderSide: BorderSide(color: Colors.grey,width: 2)
-            ),
-          ),
-        ),
-          //==================================================>>>>2nd Text field
-          SizedBox(height: 10,),
+            SizedBox(height: height*.02,),
+            //==================================================>>>>1st Text field
           TextFormField(
-          controller: emailController,
-          decoration: InputDecoration(
-            border: InputBorder.none,
-            hintText: 'Enter your Email',
-            labelText: 'Enter your Email',
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: Colors.grey,width: 2)
-            ),
-            focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
-                borderSide: BorderSide(color: Colors.grey,width: 2)
-            ),
-          ),
-        ),
-
-          //==================================================>>>>3rd Text field
-          SizedBox(height: 10,),
-          TextFormField(
-            controller: fatherController,
+            controller: nameController,
             decoration: InputDecoration(
               border: InputBorder.none,
-              hintText: 'Enter Father Name',
-              labelText: 'Enter Father Name',
+              hintText: 'Enter your Name',
+              labelText: 'Enter your Name',
               enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20),
+                borderSide: BorderSide(color: Colors.grey,width: 2)
+              ),
+              focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20),
                   borderSide: BorderSide(color: Colors.grey,width: 2)
+              ),
+            ),
+          ),
+            //==================================================>>>>2nd Text field
+            SizedBox(height: height*.02,),
+            TextFormField(
+            controller: emailController,
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              hintText: 'Enter your Email',
+              labelText: 'Enter your Email',
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20),
+                borderSide: BorderSide(color: Colors.grey,width: 2)
               ),
               focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20),
@@ -99,64 +90,87 @@ class _InsertDataState extends State<InsertData> {
             ),
           ),
 
-          SizedBox(height: 20,),
-          //==================================================>>>>ADD Button
-          loading?CircularProgressIndicator()
-              :ElevatedButton(
-            onPressed: () async{
-              try{
-                loading=true;
-                setState(() {
-
-                });
-                if(nameController.text.isNotEmpty && emailController.text.isNotEmpty && fatherController.text.isNotEmpty){
-                  await firestore.collection('Information').add({
-                    'Email':emailController.text,
-                    'Name':nameController.text,
-                    'Father Name':fatherController.text,
-                  });
-                  loading=false;
-                  setState(() {
-                  });
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: const Text('Data Added Successfully')));
-                }
-                else{
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: const Text('Please Enter Your Data'),
-                        action: SnackBarAction(label: 'Cancel', onPressed: (){}),
-                      ));
-                  loading=false;
-                  setState(() {
-
-                  });
-                }
-              }catch (e){
-                loading=false;
-                setState(() {
-
-                });
-                ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content:  Text('Error$e'),
-                      action: SnackBarAction(label: 'Cancel', onPressed: (){}),
-                    ));
-              }
-
-            },
-            style:  ElevatedButton.styleFrom(
-              backgroundColor: Colors.green,
-              minimumSize: Size(300, 50),
-            ),
-            child:const Text(
-              'ADD',
-              style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold
+            //==================================================>>>>3rd Text field
+            SizedBox(height: height*.02,),
+            TextFormField(
+              controller: fatherController,
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                hintText: 'Enter Father Name',
+                labelText: 'Enter Father Name',
+                enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: BorderSide(color: Colors.grey,width: 2)
+                ),
+                focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: BorderSide(color: Colors.grey,width: 2)
+                ),
               ),
             ),
 
-          ),
-      ],),
+            SizedBox(height: height*.02,),
+            //==================================================>>>>ADD Button
+            loading?CircularProgressIndicator()
+                :ElevatedButton(
+              onPressed: () async{
+                try{
+                  loading=true;
+                  setState(() {
+
+                  });
+                  if(nameController.text.isNotEmpty && emailController.text.isNotEmpty && fatherController.text.isNotEmpty){
+                    await firestore.collection('Information').add({
+                      'Email':emailController.text,
+                      'Name':nameController.text,
+                      'Father Name':fatherController.text,
+                    });
+                    loading=false;
+                    setState(() {
+                    });
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: const Text('Data Added Successfully')));
+                  }
+                  else{
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: const Text('Please Enter Your Data'),
+                          action: SnackBarAction(label: 'Cancel', onPressed: (){}),
+                        ));
+                    loading=false;
+                    setState(() {
+
+                    });
+                  }
+                }catch (e){
+                  loading=false;
+                  setState(() {
+
+                  });
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content:  Text('Error$e'),
+                        action: SnackBarAction(label: 'Cancel', onPressed: (){}),
+                      ));
+                }
+
+              },
+              style:  ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                minimumSize: Size(width*1,height*.06),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              child:const Text(
+                'ADD',
+                style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold
+                ),
+              ),
+
+            ),
+        ],),
+      ),
     );
   }
 }
