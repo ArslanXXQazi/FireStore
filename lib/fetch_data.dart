@@ -15,6 +15,11 @@ final FirebaseFirestore firesotre=FirebaseFirestore.instance;
   Future<void>DeleteData( String docId)async{
     try{
       await firesotre.collection('Information').doc(docId).delete();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Document Deleted Successfully")),
+      );
+      setState(() {
+      });
     }
     catch(e)
     {
@@ -57,7 +62,7 @@ final FirebaseFirestore firesotre=FirebaseFirestore.instance;
                   padding:  EdgeInsets.symmetric(vertical: height*.02,horizontal: width*.04),
                   child: GestureDetector(
                     onTap: (){
-                      DeleteData()
+                      DeleteData(docs[index].id);
                     },
                     child: Container(
                       height: height*.3,
