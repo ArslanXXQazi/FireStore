@@ -62,7 +62,14 @@ final FirebaseFirestore firesotre=FirebaseFirestore.instance;
                   padding:  EdgeInsets.symmetric(vertical: height*.02,horizontal: width*.04),
                   child: GestureDetector(
                     onTap: (){
-                      DeleteData(docs[index].id);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content:Text('Are you Sure to delete data') ,
+                          action: SnackBarAction(label: 'Delete', onPressed: (){}),
+                          duration: Duration(seconds: 5),
+                          behavior: SnackBarBehavior.floating,
+                        )
+                    );
                     },
                     child: Container(
                       height: height*.3,
