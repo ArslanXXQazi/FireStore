@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firestore/fetch_data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class InsertData extends StatefulWidget {
@@ -14,6 +15,7 @@ class _InsertDataState extends State<InsertData> {
   TextEditingController nameController=TextEditingController();
   TextEditingController emailController=TextEditingController();
   TextEditingController fatherController=TextEditingController();
+  TextEditingController rollnumerController=TextEditingController();
   final FirebaseFirestore firestore=FirebaseFirestore.instance;
 
 
@@ -24,13 +26,12 @@ class _InsertDataState extends State<InsertData> {
       setState(() {
 
       });
-      String id=DateTime.now().microsecondsSinceEpoch.toString();
-      if(nameController.text.isNotEmpty && emailController.text.isNotEmpty && fatherController.text.isNotEmpty){
+      if(nameController.text.isNotEmpty && emailController.text.isNotEmpty && fatherController.text.isNotEmpty&&rollnumerController.text.isNotEmpty){
         await firestore.collection('Information').add({
           'Email':emailController.text,
           'Name':nameController.text,
           'Father Name':fatherController.text,
-          'id':id,
+          'Roll Number':rollnumerController.text,
         });
         loading=false;
         setState(() {
@@ -160,7 +161,27 @@ class _InsertDataState extends State<InsertData> {
               ),
             ),
 
+            //==================================================>>>>4th Text field
             SizedBox(height: height*.02,),
+            TextFormField(
+              controller: rollnumerController,
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                hintText: 'Enter Your Roll Number',
+                labelText: 'Enter Your Roll Number',
+                enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: BorderSide(color: Colors.grey,width: 2)
+                ),
+                focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: BorderSide(color: Colors.blue,width: 2)
+                ),
+              ),
+            ),
+            SizedBox(height: height*.02,),
+
             //==================================================>>>>ADD Button
             loading?CircularProgressIndicator()
                 :ElevatedButton(
