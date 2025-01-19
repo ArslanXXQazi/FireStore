@@ -64,9 +64,11 @@ final FirebaseFirestore firesotre=FirebaseFirestore.instance;
                   padding:  EdgeInsets.symmetric(vertical: height*.02,horizontal: width*.04),
                   child: GestureDetector(
                     onTap: (){
-                 Get.snackbar(
-                  'are'
-                 );
+                      Get.dialog(
+                        AlertDialog(
+                          
+                        )
+                      );
                     },
                     child: Container(
                       height: height*.3,
