@@ -209,7 +209,10 @@ class _FetchDataState extends State<FetchData> {
                                           Row(
                                             children: [
                                             ElevatedButton(
-                                                onPressed: (){},
+                                                onPressed: (){
+                                                  DeleteData(docs[index].id);
+                                                  Navigator.pop(context);
+                                                },
                                                 style: ElevatedButton.styleFrom(
                                                   backgroundColor: Colors.red,
                                                 ),
@@ -222,7 +225,7 @@ class _FetchDataState extends State<FetchData> {
                                                 )),
                                             SizedBox(width: width*.03,),
                                             ElevatedButton(
-                                                onPressed: (){},
+                                                onPressed: (){Navigator.pop(context);},
                                                 style: ElevatedButton.styleFrom(
                                                 ),
                                                 child: Text(
