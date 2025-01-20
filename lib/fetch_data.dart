@@ -105,7 +105,7 @@ class _FetchDataState extends State<FetchData> {
                               ),
                             ],
                           ),
-                          SizedBox(height: height * .01),
+                          SizedBox(height: height * .02),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -260,7 +260,7 @@ class _FetchDataState extends State<FetchData> {
                                       color: Colors.white,
                                     )
                                 )),
-                          ],)
+                          ],),
                         ],
                       ),
                     ),
