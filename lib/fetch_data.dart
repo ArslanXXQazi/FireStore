@@ -41,6 +41,7 @@ class _FetchDataState extends State<FetchData> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         centerTitle: true,
+        leading: IconButton(onPressed: (){Navigator.pop(context);}, icon: Icon(Icons.arrow_back,color: Colors.white,)),
         title: Text(
           'Fetch Data',
           style: TextStyle(
@@ -67,14 +68,14 @@ class _FetchDataState extends State<FetchData> {
             itemBuilder: (context, index) {
               return Padding(
                 padding: EdgeInsets.symmetric(
-                    vertical: height * .02, horizontal: width * .04),
+                    vertical: height * .01, horizontal: width * .03),
                 child: Container(
                   height: height * .4,
-                  width: width * .7,
+                  width: width * 1,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.green, width: 2),
+                    border: Border.all(color: Colors.red, width: 2),
                   ),
                   child: Center(
                     child: Padding(

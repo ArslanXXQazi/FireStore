@@ -85,6 +85,7 @@ class _UpdateDataState extends State<UpdateData> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         centerTitle: true,
+        leading: IconButton(onPressed: (){Navigator.pop(context);}, icon: Icon(Icons.arrow_back,color: Colors.white,)),
         title: const Text(
           'Update Data',
           style: TextStyle(
