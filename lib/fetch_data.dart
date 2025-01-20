@@ -219,7 +219,7 @@ class _FetchDataState extends State<FetchData> {
                                               children: [
                                                 ElevatedButton(
                                                     onPressed: (){
-                                                      Navigator.push(context, CupertinoPageRoute(builder: (context)=>UpdateData()));
+                                                      Navigator.push(context, CupertinoPageRoute(builder: (context)=>UpdateData(docId: docs[index].id,)));
                                                     },
                                                     style: ElevatedButton.styleFrom(
                                                       backgroundColor: Colors.green,
