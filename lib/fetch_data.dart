@@ -114,7 +114,7 @@ class _FetchDataState extends State<FetchData> {
                     );
                   },
                   child: Container(
-                    height: height * .3,
+                    height: height * .4,
                     width: width * .7,
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -194,6 +194,36 @@ class _FetchDataState extends State<FetchData> {
                                 ),
                               ],
                             ),
+                            SizedBox(height: height * .02),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                              ElevatedButton(
+                                  onPressed: (){},
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.red,
+                                  ),
+                                  child: Text(
+                                  'Delete',
+                                    style: GoogleFonts.aBeeZee(
+                                      fontSize: 18,
+                                      color: Colors.white,
+                                    )
+                                  )),
+                              SizedBox(width: width*.08,),
+                              ElevatedButton(
+                                  onPressed: (){},
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.green,
+                                  ),
+                                  child: Text(
+                                      'Update',
+                                      style: GoogleFonts.aBeeZee(
+                                        fontSize: 18,
+                                        color: Colors.white,
+                                      )
+                                  )),
+                            ],)
                           ],
                         ),
                       ),
