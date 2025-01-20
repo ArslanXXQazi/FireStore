@@ -199,7 +199,45 @@ class _FetchDataState extends State<FetchData> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                               ElevatedButton(
-                                  onPressed: (){},
+                                  onPressed: (){
+                                    showDialog(context: context,
+                                        builder:(BuildContext Context)
+                                        {
+                                      return AlertDialog(
+                                        title: Text('Are you sure you want to delete?',style: TextStyle(fontSize: 15),),
+                                        actions: [
+                                          Row(
+                                            children: [
+                                            ElevatedButton(
+                                                onPressed: (){},
+                                                style: ElevatedButton.styleFrom(
+                                                  backgroundColor: Colors.red,
+                                                ),
+                                                child: Text(
+                                                    'Delete',
+                                                    style: GoogleFonts.aBeeZee(
+                                                      fontSize: 18,
+                                                      color: Colors.white,
+                                                    )
+                                                )),
+                                            SizedBox(width: width*.03,),
+                                            ElevatedButton(
+                                                onPressed: (){},
+                                                style: ElevatedButton.styleFrom(
+                                                ),
+                                                child: Text(
+                                                    'Cancel',
+                                                    style: GoogleFonts.aBeeZee(
+                                                      fontSize: 18,
+
+                                                    )
+                                                )),
+                                          ],)
+                                        ],
+                                      );
+                                        }
+                                    );
+                                  },
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.red,
                                   ),
