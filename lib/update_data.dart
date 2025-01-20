@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firestore/fetch_data.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -48,19 +49,24 @@ class _UpdateDataState extends State<UpdateData> {
   {
    try
        {
+         loading=true;
+         setState(() {
+
+         });
          await firestore.collection('Information').doc(widget.docId).update({
            'Name': nameController.text,
            'Email': emailController.text,
            'Father Name': fatherController.text,
            'Roll Number': rollnumerController.text,
          });
-         setState(() {
-           
-         });
          ScaffoldMessenger.of(context).showSnackBar(
            SnackBar(content: Text('Data Updated Successfully')),
          );
-         Navigator.pop(context);
+         Navigator.push(context, CupertinoPageRoute(builder: (context)=>FetchData()));
+         loading=false;
+         setState(() {
+
+         });
        }
        catch(e)
     {
