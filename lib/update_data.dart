@@ -22,29 +22,29 @@ class _UpdateDataState extends State<UpdateData> {
 
   bool loading=false;
 
-  Future<void> _fetchExistingData()async
-  {
-    try{
-      final doc = await firestore.collection('Information').doc(widget.docId).get();
-      if(doc.exists)
-        {
-          setState(() {
-            nameController.text=doc["name"]??'';
-            emailController.text=doc['Email']??'';
-            fatherController.text=doc["Father Name"]??'';
-            rollnumerController.text=doc['Roll Number']??'';
-          });
-        }
-    }
-    catch(e)
-    {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error fetching data: $e')),
-      );
-    }
-  }
-
-
+  // Future<void> _fetchExistingData()async
+  // {
+  //   try{
+  //     final doc = await firestore.collection('Information').doc(widget.docId).get();
+  //     if(doc.exists)
+  //       {
+  //         setState(() {
+  //           nameController.text=doc["name"]??'';
+  //           emailController.text=doc['Email']??'';
+  //           fatherController.text=doc["Father Name"]??'';
+  //           rollnumerController.text=doc['Roll Number']??'';
+  //         });
+  //       }
+  //   }
+  //   catch(e)
+  //   {
+  //     ScaffoldMessenger.of(context).showSnackBar(
+  //       SnackBar(content: Text('Error fetching data: $e')),
+  //     );
+  //   }
+  // }
+  //
+  @override
   Future<void> _updateData()async
   {
    try
