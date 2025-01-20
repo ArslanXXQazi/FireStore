@@ -54,6 +54,9 @@ class _UpdateDataState extends State<UpdateData> {
            'Father Name': fatherController.text,
            'Roll Number': rollnumerController.text,
          });
+         setState(() {
+           
+         });
          ScaffoldMessenger.of(context).showSnackBar(
            SnackBar(content: Text('Data Updated Successfully')),
          );
@@ -61,7 +64,9 @@ class _UpdateDataState extends State<UpdateData> {
        }
        catch(e)
     {
-      
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error updating data: $e')),
+      );
     }
   }
 
@@ -75,7 +80,7 @@ class _UpdateDataState extends State<UpdateData> {
         backgroundColor: Colors.black,
         centerTitle: true,
         title: const Text(
-          'FireStore DataBase',
+          'Update Data',
           style: TextStyle(
               color: Colors.white,
               fontSize: 20,
@@ -88,7 +93,7 @@ class _UpdateDataState extends State<UpdateData> {
         child: Column(
           children: [
             Text(
-              'Enter Student Information',
+              'Update Student Information',
               style: GoogleFonts.b612Mono(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -176,6 +181,7 @@ class _UpdateDataState extends State<UpdateData> {
             loading?CircularProgressIndicator()
                 :ElevatedButton(
               onPressed: () {
+                _updateData();
               },
               style:  ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
