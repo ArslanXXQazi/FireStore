@@ -98,11 +98,20 @@ class _InsertDataState extends State<InsertData> {
         child: Column(
           children: [
             Text(
-              'Enter Student Information',
-             style: GoogleFonts.b612Mono(
-               fontSize: 20,
+              'Sign Up',
+             style: TextStyle(
+               fontSize: 22,
                fontWeight: FontWeight.bold,
-               color: Colors.green
+               color: Colors.black,
+               fontFamily: 'satoshi'
+             ),
+            ),
+            Text(
+              'Your Name',
+             style: TextStyle(
+               fontSize: 14,
+               color: Colors.black,
+               fontFamily: 'satoshi'
              ),
             ),
             SizedBox(height: height*.02,),
